@@ -1,0 +1,59 @@
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0px;
+}
+#app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+#addpost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 10px black;
+    border-radius: 25px;
+    opacity: 0.85;
+    top: 80px;
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background-color: yellow;
+}
+.postbuttons {
+    display: flex;
+    align-items: flex-end;
+    align-content: flex-end;
+    max-height: 25px;
+}
+#header {
+    width: 100%;
+    background-color: navy;
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+#logintable {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    white-space: nowrap;
+
+}
+
+#title {
+    text-decoration: none;
+    color: white;
+}
+
+#login {
+    text-decoration: none;
+    color:white;
+}

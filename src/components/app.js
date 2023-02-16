@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import RenderHeader from './renderheader.js';
 import RenderPage from './renderpage.js';
+import LogIn from './login.js'
+import { HashRouter, Routes, Route } from 'react-router-dom';
+
 
 
 const App = () => {
     const [ postList, setPostList ] = useState([]);
+    const [ isLoggedIn, setIsLoggedIn ] = useState(window.localStorage.getItem('token'));
 
     useEffect(() => {
 
@@ -31,7 +35,13 @@ const App = () => {
     console.log(postList);
 
     return (
-        <><RenderHeader/><RenderPage postList={postList}/></>
+        <>
+            <RenderHeader isLoggedIn={isLoggedIn}/>
+            <Routes>
+                <Route path='/' element={<RenderPage postList={postList} isLoggedIn={isLoggedIn}/>} ></Route>
+                <Route path='/login' element={<LogIn setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}></Route>
+            </Routes>
+        </>
     )
 }
 

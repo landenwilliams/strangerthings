@@ -1,8 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const RenderHeader = () => {
+const RenderHeader = (props) => {
   
-    return (<header><h1>header</h1></header>)
+    return (
+            <header id="header">
+                <Link id='title' to='/'><h1>Stranger Things</h1></Link>
+                { props.isLoggedIn ? <Link id='login' to='/login'><h2>Logout</h2></Link> :
+                <Link id='login' to='/login'><h2>Login/Register</h2></Link>
+                
+                }
+            </header>)
 }
 
 export default RenderHeader;
