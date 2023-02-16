@@ -13,7 +13,10 @@ const App = () => {
             try{
                 const response = await fetch('https://strangers-things.herokuapp.com/api/2211-ftb-et-web-am/posts');
                 const data = await response.json();
-                setPostList(data.data.post);
+                // console.log(data.data.posts[0].author.username);
+                const posts = data.data.posts;
+                setPostList(posts);
+       
         
             }   catch (error){
                 console.log("api not loading");
