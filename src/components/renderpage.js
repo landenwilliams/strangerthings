@@ -1,12 +1,17 @@
 import React, {useState, useEffect} from 'react';
 
-const RenderPage = () => {
+const RenderPage = (props) => {
     
-    console.log(
-        'page'
+    return (
+        <ol>
+            
+            {
+                props.postList.map((post, index) => {
+                    return <li key={index}>{post.author.username}</li>
+                })
+            }
+        </ol>
     )
-
-    return (<h1>page body</h1>)
 }
 
 export default RenderPage;

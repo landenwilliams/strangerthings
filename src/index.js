@@ -1,16 +1,10 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import RenderPage from './components/renderpage.js';
-import RenderHeader from './components/renderheader.js';
+import App from './components/app.js';
 
 const appElement = document.getElementById("app");
 const root = createRoot(appElement);
 
 root.render(
-    <><RenderHeader/><RenderPage/></>
+    <App/>
 )
-
-
-
-
-console.log('index script')
