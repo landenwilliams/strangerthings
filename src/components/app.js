@@ -36,7 +36,7 @@ const App = () => {
 
     return (
         <>
-            <RenderHeader isLoggedIn={isLoggedIn}/>
+            <RenderHeader isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
             <Routes>
                 <Route path='/' element={<RenderPage postList={postList} isLoggedIn={isLoggedIn}/>} ></Route>
                 <Route path='/login' element={<LogIn setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}></Route>

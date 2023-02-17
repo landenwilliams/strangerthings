@@ -2,6 +2,7 @@ body {
     max-width: 100%;
     overflow-x: hidden;
     margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 #app{
     display: flex;
@@ -17,10 +18,10 @@ body {
     border-radius: 25px;
     opacity: 0.85;
     top: 80px;
-    position: absolute;
+    position: fixed;
     width: 500px;
     height: 500px;
-    background-color: yellow;
+    background-color: pink;
 }
 .postbuttons {
     display: flex;
@@ -29,8 +30,9 @@ body {
     max-height: 25px;
 }
 #header {
+    position: fixed;
     width: 100%;
-    background-color: navy;
+    background-color: red;
     display: flex;
     flex-wrap: nowrap;
     white-space: nowrap;
@@ -38,22 +40,67 @@ body {
     justify-content: space-around;
     
 }
+#posts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 90px;
+}
+#post {
+    border-style: solid;
+    border-color: red;
+    padding: 10px;
+    border-radius: 25px;
+    max-width: 600px;
+    width: 600px;
+    
+}
 
 #logintable {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 90px;
     white-space: nowrap;
+    
 
 }
+
+.registerlink {
+    color: red;
+}
+
 
 #title {
     text-decoration: none;
     color: white;
 }
 
-#login {
+.headerlinks {
     text-decoration: none;
     color:white;
+}
+
+#postUsername {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#postUsername button {
+    max-height: 25px;
+}
+
+#posts input {
+    height: 40px;
+    width: 600px;
+    font-size: 20px;
+}
+
+#posts button {
+    display: flex;
+    align-self: flex-end;
+    margin-right: 8px;
+    margin-top: 2px;
 }

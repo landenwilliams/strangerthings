@@ -20,8 +20,7 @@ const LogIn = (props) => {
     return (
         
         <div id="logintable">
-            {
-                props.isLoggedIn ? <><button onClick={logOut} >Logout</button></> : 
+            
             
             <form id="login-form">
                 <input type="text" name="username" placeholder="username"/>
@@ -29,16 +28,16 @@ const LogIn = (props) => {
                 {
                     showLoginButton ? 
                         <>
-                            <button onClick={logIn} >Login</button><br/>
-                            <Link onClick={() => setShowLoginButton(false)}><h5>Not registered? Click Here!</h5></Link>
+                            <Link to="/"><button onClick={logIn} >Login</button></Link><br/>
+                            <Link className="registerlink" onClick={() => setShowLoginButton(false)}><h5>Not registered? Click Here!</h5></Link>
                         </> : <>
                             <input type="test" name="confirm" placeholder="confirm password"></input>
                             <button>Register</button>
-                            <Link onClick={() => setShowLoginButton(true)}><h5>Already Registered? Click Here!</h5></Link>
+                            <Link className="registerlink" onClick={() => setShowLoginButton(true)}><h5>Already Registered? Click Here!</h5></Link>
                         </>
                 }
             </form>
-            }
+            
             
         </div>
         
