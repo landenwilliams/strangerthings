@@ -13,7 +13,8 @@ const LogIn = (props) => {
     const [ loginToken, setLoginToken ] = useState('');
     const [ invalidPasswordConfirmation, setInvalidPasswordConformation ] = useState(false);
 
-    const logIn =  async() => {
+    const logIn =  async (e) => {
+        e.preventDefault();
         //call an api with fetch
         console.log(loginName);
         console.log(loginPassword);

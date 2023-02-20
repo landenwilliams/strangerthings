@@ -5,19 +5,27 @@ const RenderPage = (props) => {
     const [ addPostDisplay, setAddPostDisplay ] = useState (false);
     const [ addMessageDisplay, setAddMessageDisplay ] = useState(false);
     const [ searchTerm, setSearchTerm ] = useState('');
+    const [ postTitle, setPostTitle] = useState('');
+    const [ postDescript, setPostDescript ] = useState('');
+    const [ postPrice, setPostPrice ] = useState('');
+    const [ postLocation, setPostLocation ] = useState('');
+
+    const token = window.localStorage.getItem('token');
+
 
     const addPost = () => {
         fetch('https://strangers-things.herokuapp.com/api/2211-ftb-et-web-am/posts', {
         method: "POST",
          headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2U0N2Y3YjcwOWM0ODAwMTU5YmVkYzciLCJ1c2VybmFtZSI6InN1cGVybWFuMjciLCJpYXQiOjE2NzY2MjEyNTB9.-mGQ7OZvmiOoUVKMeWyFSSBwi45Do-ltnZp35YsPUKQ'
+        'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
         post: {
-        title: "My favorite stuffed animal",
-        description: "This is a pooh doll from 1973. It has been carefully taken care of since I first got it.",
-        price: "$480.00",
+        title: `${postTitle}`,
+        description: `${postDescript}`,
+        price: `${postPrice}`,
+        location: `${postLocation}`,
         willDeliver: true
         }
   })
@@ -36,10 +44,10 @@ const RenderPage = (props) => {
         { addPostDisplay ? 
             <div id="addpost">
                 <div>
-                    <input placeholder="Title" /><br/>
-                    <input placeholder="Description" /><br/>
-                    <input placeholder="Price" /><br/>
-                    <input placeholder="Location" /><br/>
+                    <input placeholder="Title" onChange={() => {setPostTitle(event.target.value)}}/><br/>
+                    <input placeholder="Description" onChange={() =>{setPostDescript(event.target.value)}}/><br/>
+                    <input placeholder="Price" type="number" onChange={() => {setPostPrice(event.target.value)}}/><br/>
+                    <input placeholder="Location" onChange={() => {setPostLocation(event.target.value)}}/><br/>
                     
                     <Link to='/'><button className="postbuttons" onClick={addPost}>Create Post</button></Link>
                     <button className="postbuttons" onClick={() => setAddPostDisplay(false)}>Cancel</button>
@@ -50,8 +58,7 @@ const RenderPage = (props) => {
         { addMessageDisplay ? 
             <div id="addpost">
                 <div>
-                    <input placeholder="Title" /><br/>
-                    <input placeholder="Description" /><br/>
+                    <input placeholder="Message" /><br/>
                     
                     <Link to='/'><button className="postbuttons" >Send</button></Link>
                     <button className="postbuttons" onClick={() => setAddMessageDisplay(false)}>Cancel</button>
