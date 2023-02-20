@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import RenderHeader from './renderheader.js';
 import RenderPage from './renderpage.js';
 import LogIn from './login.js'
+import Profile from './profile.js'
 import { HashRouter, Routes, Route } from 'react-router-dom';
 
 
@@ -9,6 +10,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 const App = () => {
     const [ postList, setPostList ] = useState([]);
     const [ isLoggedIn, setIsLoggedIn ] = useState(window.localStorage.getItem('token'));
+
 
     useEffect(() => {
 
@@ -32,7 +34,7 @@ const App = () => {
 
     }, [])
 
-    console.log(postList);
+    // console.log(postList);
 
     return (
         <>
@@ -40,6 +42,7 @@ const App = () => {
             <Routes>
                 <Route path='/' element={<RenderPage postList={postList} isLoggedIn={isLoggedIn}/>} ></Route>
                 <Route path='/login' element={<LogIn setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}></Route>
+                <Route path='/profile' element={<Profile isLoggedIn={isLoggedIn} />}></Route>
             </Routes>
         </>
     )
