@@ -8,6 +8,6 @@ const root = createRoot(appElement);
 
 root.render(
     <HashRouter>
-        <App/>
+        <App />
     </HashRouter>
 )

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import { render } from "react-dom";
 import { Navigate} from 'react-router-dom';
 
 const Profile = (props) => {
@@ -48,7 +47,7 @@ const deletePost = (post, index) => {
     }
     }).then(response => response.json())
     .then(result => {
-    console.log(result);
+    // console.log(result);
     window.location.reload();
     })
     .catch(console.error);   
@@ -74,7 +73,7 @@ const deletePost = (post, index) => {
         })
     }).then(response => response.json())
     .then(result => {
-    console.log(result);
+    // console.log(result);
     window.location.reload();
     })
     .catch(console.error);
@@ -86,8 +85,8 @@ const editOnClick = (post) => {
 }
 
 
-    console.log(profile);
-    console.log(profile.posts);
+    // console.log(profile);
+    // console.log(profile.posts);
     return (
         
         <div id="posts">
@@ -103,13 +102,15 @@ const editOnClick = (post) => {
                                 { post.active ? <>
                                     { editPostDisplay ? 
                                         <div className="popupbox">
-                                            <div><h1>Edit Post:</h1>
-                                                <input placeholder={currentPost.title} defaultValue={currentPost.title} onChange={() => {setPostTitle(event.target.value)}}/><br/>
-                                                <input placeholder={currentPost.description} defaultValue={currentPost.description} onChange={() =>{setPostDescript(event.target.value)}}/><br/>
-                                                <input placeholder={currentPost.price} type="number" defaultValue={currentPost.price} onChange={() => {setPostPrice(event.target.value)}}/><br/>
-                                                <input placeholder={currentPost.location} defaultValue={currentPost.location} onChange={() => {setPostLocation(event.target.value)}}/><br/>
+                                            <div id="editDiv"><h1>Edit Post:</h1>
+                                                <input placeholder="Title" defaultValue={currentPost.title} onChange={() => {setPostTitle(event.target.value)}}/><br/>
+                                                <input placeholder="Description" defaultValue={currentPost.description} onChange={() =>{setPostDescript(event.target.value)}}/><br/>
+                                                <input placeholder="Price" type="number" defaultValue={currentPost.price} onChange={() => {setPostPrice(event.target.value)}}/><br/>
+                                                <input placeholder="Location" defaultValue={currentPost.location} onChange={() => {setPostLocation(event.target.value)}}/><br/>
+                                                
                                                 <button className="postbuttons" onClick={() => editPost(currentPost)}>Submit Edit</button>
                                                 <button className="postbuttons" onClick={() => setEditPostDisplay(false)}>Cancel</button>
+                                                
                                             </div>
                                         </div>  : null } 
                                         <div id="post" >
@@ -118,8 +119,12 @@ const editOnClick = (post) => {
                                             <h3>Description:{post.description}</h3>
                                             <h4>Location:{post.location}</h4>
                                             <h5>Will Deliver: { post.willDeliver ? <>Yes</> : <>No</> } </h5>
+                                            
+                                            <div id="profilebuttons">
+                                                <button onClick={()=>editOnClick(post)}>Edit</button>
+                                                <button onClick={()=>deletePost(post, index)}>Delete</button>
+                                            </div>
                                             <h5>Posted: {post.createdAt}</h5>
-                                            <button onClick={()=>editOnClick(post)}>Edit</button><button onClick={()=>deletePost(post, index)}>Delete</button>
                                         </div><br/></>
                                  : null } 
                                  
